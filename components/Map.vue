@@ -4,13 +4,13 @@
       <l-map :zoom=12 :center="center" :options="mapOptions" @click="addMarker">
         <l-control-zoom :position="zoomPosition"/>
         <l-tile-layer url="http://80.240.31.97/tile/{z}/{x}/{y}.png"></l-tile-layer>
-        <l-geo-json
+        <!-- <l-geo-json
           v-show="show"
           :geojson="geojson"
-        />
-        <l-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latlng" @l-add="$event.target.openPopup()">
+        /> -->
+        <!-- <l-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latlng" @l-add="$event.target.openPopup()">
           <l-popup>{{ marker.latlng }}</l-popup>
-        </l-marker>
+        </l-marker> -->
       </l-map>
     </no-ssr>
   </div>

@@ -49,6 +49,8 @@
             </div>
             <div>
               <v-btn
+                router
+                to="/dispatcher"
                 fab
                 dark
                 small
@@ -104,7 +106,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .overlay {
   position: absolute;
   

@@ -8,6 +8,7 @@ const getters = {
 
 const mutations = {
   SET_LAYOUT (state, payload) {
+    localStorage.setItem('layout', payload)
     state.layout = payload
   }
 }
