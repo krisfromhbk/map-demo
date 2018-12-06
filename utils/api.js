@@ -5,7 +5,7 @@ const apiCall = (url, method, ...args) => new Promise((resolve, reject) => {
     url: url,
     method: method,
     data: args[0],
-    baseURL: 'http://0.0.0.0:8080/'
+    baseURL: 'https://wtf.rocketparty.app:443/'
   })
     .then((response) => {
       resolve(response.data)

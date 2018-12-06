@@ -65,6 +65,7 @@ export default {
   },
   created () {
     this.cookRoutes(this.aga)
+    this.SET_BUSSES(this.compiledRoutes)
   },
   watch: {
     aga (routes) {
