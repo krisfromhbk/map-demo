@@ -2,6 +2,9 @@
   <div style="height: 100%;">
     <div class="overlay">
       <section>
+        
+        <bus-routes-dialog :dialog="dialog" @my-event="hm()"/>
+
         <div class="ma-5">
           <v-speed-dial
             class=""
@@ -31,7 +34,7 @@
                 dark
                 small
                 color="green"
-                @click="test"
+                @click="dialog = true"
               >
                 <v-icon>directions_bus</v-icon>
               </v-btn>
@@ -71,7 +74,12 @@
 </template>
 
 <script>
+import BusRoutesDialog from '~/components/BusRoutesDialog'
+
 export default {
+  components: {
+    'bus-routes-dialog': BusRoutesDialog
+  },
   data () {
     return {
       clipped: false,
@@ -92,7 +100,8 @@ export default {
       right: true,
       bottom: true,
       left: false,
-      transition: 'slide-x-transition'
+      transition: 'slide-x-transition',
+      dialog: false
     }
   },
   methods: {
@@ -101,6 +110,10 @@ export default {
     },
     setLayout (layout) {
       this.$store.commit('layouts/SET_LAYOUT', layout)
+    },
+    hm () {
+      console.log('aga')
+      this.dialog = false
     }
   }
 }
