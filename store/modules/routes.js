@@ -1,4 +1,4 @@
-import { GET_ROUTES_REQUEST, GET_ROUTES_SUCCESS, GET_ROUTES_ERROR } from '../actions/routes'
+import { GET_ROUTES_REQUEST, GET_ROUTES_SUCCESS, GET_ROUTES_ERROR, ADD_ROUTE } from '../actions/routes'
 import { apiCall } from '@/utils/api'
 
 const namespaced = true
@@ -20,6 +20,9 @@ const actions = {
       commit(GET_ROUTES_ERROR)
       console.log(error)
     }
+  },
+  [ADD_ROUTE]: ({ commit, dispatch }, route) => {
+    commit(ADD_ROUTE)
   }
 }
 
@@ -34,6 +37,9 @@ const mutations = {
   },
   [GET_ROUTES_ERROR]: (state) => {
     state.status = 'get error'
+  },
+  [ADD_ROUTE]: (state, route) => {
+    state.routes.push(route)
   }
 }
 

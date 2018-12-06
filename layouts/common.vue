@@ -112,7 +112,6 @@ export default {
       this.$store.commit('layouts/SET_LAYOUT', layout)
     },
     hm () {
-      console.log('aga')
       this.dialog = false
     }
   }

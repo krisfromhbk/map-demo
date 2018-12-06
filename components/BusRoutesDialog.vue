@@ -10,11 +10,11 @@
       <v-card-text>
         <v-list>
           <v-list-tile 
-            @click="''"
             v-for="item in compiledRoutes"
             :key="item._id"
+            @click="''"
           >
-            <v-list-tile-content @click="invertModel(item._id)">
+            <v-list-tile-content @click="updateState(item._id)">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
 
@@ -39,7 +39,7 @@
         <v-btn
           color="green darken-1"
           flat="flat"
-          @click="ok()"
+          @click="next()"
         >
           Го некст
         </v-btn>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   props: [
@@ -63,14 +63,27 @@ export default {
   computed: {
     ...mapGetters('routes', ['aga'])
   },
+  created () {
+    this.cookRoutes(this.aga)
+  },
   watch: {
     aga (routes) {
       this.cookRoutes(routes)
+      this.SET_BUSSES(this.compiledRoutes)
     }
   },
   methods: {
+    ...mapMutations('commonMap', ['SET_BUSSES']),
+    ...mapMutations('commonMap', ['UPDATE_BUS']),
     ok () {
       this.$emit('my-event')
+    },
+    next () {
+      this.$emit('my-event')
+    },
+    updateState (id) {
+      // this.invertModel(id)
+      this.UPDATE_BUS(id)
     },
     cookRoutes (routes) {
       let localRoutes = []
