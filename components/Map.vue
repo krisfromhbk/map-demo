@@ -8,9 +8,9 @@
           v-show="show"
           :geojson="geojson"
         /> -->
-        <!-- <l-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latlng" @l-add="$event.target.openPopup()">
+        <l-marker v-for="marker in markers" :key="marker.id" :lat-lng="marker.latlng" @l-add="$event.target.openPopup()">
           <l-popup>{{ marker.latlng }}</l-popup>
-        </l-marker> -->
+        </l-marker>
       </l-map>
     </no-ssr>
   </div>
